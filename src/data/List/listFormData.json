@@ -1,0 +1,14 @@
+{
+  "listsFormData": [
+    {
+      "name": "ingrediate",
+      "placeholder": "Add a shopping Item",
+      "type": "text"
+    },
+    {
+      "name": "amount",
+      "placeholder": "Amount",
+      "type": "number"
+    }
+  ]
+}
