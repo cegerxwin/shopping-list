@@ -3,7 +3,7 @@
 ![204](https://github.com/cegerxwin/shopping-list/assets/31402706/c26ebf96-a2fb-4ec7-be55-a3c568f797fc)
 ![205](https://github.com/cegerxwin/shopping-list/assets/31402706/bf40102c-0f34-4e9a-94ac-dfc99a1ebfc0)
 
-
+React Bootcamp week 3 project 3  It use Tailwindcss. It deploy Netlify
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
