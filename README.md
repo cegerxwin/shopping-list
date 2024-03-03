@@ -5,6 +5,8 @@
 
 React Bootcamp week 3 project 3  It use Tailwindcss. It deploy Netlify
 
+First download the file. Enter the folder of the file you downloaded. Do npm install with command, then run the react project with npm run dev.
+
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
 Currently, two official plugins are available:
