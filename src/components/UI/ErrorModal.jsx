@@ -1,3 +1,4 @@
+import { createPortal } from "react-dom";
 import PropTypes from "prop-types";
 import Attention from "../../assets/attention.svg";
 
@@ -5,10 +6,9 @@ const ErrorModal = (props) => {
   if (!props.isShowError) {
     return;
   }
-
-  return (
+  return createPortal(
     <div className="error-modal">
-      <div className="flex justify-center items-center h-screen">
+      <div className="flex justify-center items-center h-screen absolute">
         <div>
           <button className="px-4 py-2 bg-black text-yellow-500 rounded-md"></button>
           <div className="fixed inset-0 px-2 z-10 overflow-hidden flex items-center justify-center">
@@ -36,7 +36,8 @@ const ErrorModal = (props) => {
           </div>
         </div>
       </div>
-    </div>
+    </div>,
+    document.getElementById("modal")
   );
 };
 

@@ -24,7 +24,7 @@ function Button({ children, className, onClick }) {
           viewBox="0 0 24 24"
           strokeWidth={2}
           stroke="currentColor"
-          className="h-5 w-5">
+          className="h-5 w-5 mr-2">
           <path
             strokeLinecap="round"
             strokeLinejoin="round"
