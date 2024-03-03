@@ -1,5 +1,7 @@
 import PropTypes from "prop-types";
 import Button from "../UI/Button";
+import ListItemEdit from "./ListItemEdit";
+import { useState } from "react";
 
 function ListItem({
   listIngrediate,
@@ -8,6 +10,10 @@ function ListItem({
   setShoppingListData,
   shoppingListData,
 }) {
+  const [updateState, setUpdateState] = useState(false);
+  const [updateStateItem, setUpdateStateItem] = useState(
+    ...shoppingListData.filter((item) => item.id === lid)
+  );
   const handleDelete = (item) => {
     setShoppingListData(
       shoppingListData.filter(
@@ -16,15 +22,25 @@ function ListItem({
     );
   };
 
-  const handleUpdate = (item) => {
-    setShoppingListData(
-      shoppingListData.filter(
-        (shoppingListData) => shoppingListData.id !== item.id
-      )
-    );
-  };
+  function handleUpdateState() {
+    setUpdateState(true);
+    setUpdateStateItem(...shoppingListData.filter((item) => item.id === lid));
+  }
 
-  return (
+  return updateState === true ? (
+    <ListItemEdit
+      key={lid}
+      lid={lid}
+      listIngrediate={listIngrediate}
+      listAmount={listAmount}
+      setShoppingListData={setShoppingListData}
+      shoppingListData={shoppingListData}
+      updateState={updateState}
+      setUpdateState={setUpdateState}
+      updateStateItem={updateStateItem}
+      setUpdateStateItem={setUpdateStateItem}
+    />
+  ) : (
     <li className="py-4">
       <div className="flex items-center justify-around">
         <input
@@ -40,9 +56,9 @@ function ListItem({
         </label>
         <span>{listAmount}</span>
         <Button
-          onClick={() => handleUpdate(lid)}
-          className="inline-flex items-center px-4 py-2 bg-yellow-500 hover:bg-yellow-400 text-white text-sm font-medium rounded-md">
-          Update
+          onClick={handleUpdateState}
+          className="inline-flex items-center px-4 py-2 bg-green-500 hover:bg-green-400 text-white text-sm font-medium rounded-md">
+          Edit
         </Button>
         <Button
           onClick={() => handleDelete(lid)}
@@ -57,7 +73,6 @@ function ListItem({
 export default ListItem;
 
 ListItem.propTypes = {
-  list: PropTypes.object,
   listIngrediate: PropTypes.string,
   listAmount: PropTypes.string,
   ingrediate: PropTypes.string,
@@ -66,4 +81,5 @@ ListItem.propTypes = {
   handleDelete: PropTypes.func,
   setShoppingListData: PropTypes.func,
   shoppingListData: PropTypes.array,
+  setUpdateState: PropTypes.func,
 };

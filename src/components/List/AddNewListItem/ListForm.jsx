@@ -74,6 +74,6 @@ function ListForm({ shoppingListData, setShoppingListData }) {
 export default ListForm;
 
 ListForm.propTypes = {
-  shoppingListData: PropTypes.array,
   setShoppingListData: PropTypes.func,
+  shoppingListData: PropTypes.array,
 };
